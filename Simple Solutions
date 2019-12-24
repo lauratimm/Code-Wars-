@@ -1,0 +1,74 @@
+class Arge {
+
+    public static int nbYear(int p0, double percent, int aug, int p) {
+        int pop = p0;
+        int n = 0;
+        double per = percent / 100;
+
+        while (pop < p) {
+            pop = (int) (pop + (pop * per) + aug);
+            n += 1;
+        }
+        return n;
+    }
+
+    public static int calculateYears(double principal, double interest, double tax, double desired) {
+        int year = 0;
+        double amount = principal;
+        double amount_interest;
+        double amount_tax;
+
+        while (amount < desired) {
+            amount_interest = amount * interest;
+            amount_tax = amount_interest * tax;
+
+            amount = (amount + amount_interest - amount_tax);
+            year++;
+        }
+
+
+        return year;
+    }
+
+    public class MaxMultiple {
+        public static int maxMultiple(int divisor, int bound) {
+            for (int i = bound; i > 0; i--) {
+                if (i % divisor == 0) {
+                    return i;
+                }
+
+            }
+            return -1;
+        }
+    }
+
+    public class Factorial {
+
+        public int factorial(int n) {
+            if (n == 0) {
+                return 1;
+            }
+            if (n > 0 && n < 12) {
+                return n * factorial(n - 1);
+
+            } else {
+                throw new IllegalArgumentException("n must be between 0 and 12");
+            }
+        }
+    }
+
+    public class Kata {
+        public static int findShort(String s) {
+
+            String[] words = s.split(" ");
+            String shortest = words[0];
+            for (String element : words) {
+                if (element.length() < shortest.length()) {
+                    shortest = element;
+                }
+            }
+            return shortest.length();
+        }
+    }
+}
+
